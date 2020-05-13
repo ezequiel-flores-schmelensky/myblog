@@ -44,9 +44,9 @@
     <!-- segundo bloque pantalla home -->
     <div class="grid-x align-center" style="margin-top: 1em;">
         <div class="cell small-12 large-10 callout secondary">
-            <h5>Conoce mas de nostros:</h5>
+            <h5>{{ home.about_title }}</h5>
             <p>
-                Creamos contenido educativo relacionado a la programación web, frontend backedn, servidores y demás, para enterarte sobre nuevas publicaciones suscribete a nuestro blog.
+                {{ home.about_text }}
             </p>
 
             <p>
@@ -56,12 +56,13 @@
             <!-- This is the first modal -->
             <div class="reveal" id="exampleModal2" data-reveal style="width: 300px;">
                 <p class="lead">Ingresa tu correo</p>
-                <form class="grid-x grid-margin-x">
+                <form class="grid-x grid-margin-x" method="POST" action="{% url 'home_app:add-suscription' %}">
+                    {% csrf_token %}
                     <div class="cell small-12">
-                        <input type="text" placeholder="E-mail..">
+                        {{ form.email }}
                     </div>
                     <div class="cell small-12">
-                        <button type="button" class="success button">Suscribirme</button>
+                        <button type="submit" class="success button">Suscribirme</button>
                     </div>
                 </form>
             </div>
