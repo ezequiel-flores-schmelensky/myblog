@@ -15,7 +15,7 @@
                 <img src="{{ portada.image.url }}">
                 <div class="card-section">
                   <h4>{{ portada.title }}</h4>
-                  <p>{{ portada.resume }}</p>
+                  <p>{{ portada.resume | truncatechars:100 }}</p>
                 </div>
             </div>
         </div>
@@ -23,38 +23,19 @@
 
         <!-- bloque de blog principal -->
         <div class="cell small-12 large-6 grid-x grid-margin-x">
+            
+            {% for entrada in entradas_home %}
             <div class="cell small-12 large-6">
                 <div class="card" style="width: 100%;">
-                    <img src="https://neunapp.com/media/blog/header16.jpg">
+                    <img src="{{ entrada.image.url }}" style="height: 120px;">
                     <div class="card-section">
-                      <h5>This is a card.</h5>
+                      <h5>{{ entrada.title | truncatechars:40 }}</h5>
                     </div>
                 </div>
             </div>
-            <div class="cell small-12 large-6">
-                <div class="card" style="width: 100%;">
-                    <img src="https://neunapp.com/media/blog/header16.jpg">
-                    <div class="card-section">
-                      <h5>This is a card.</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="cell small-12 large-6">
-                <div class="card" style="width: 100%;">
-                    <img src="https://neunapp.com/media/blog/header16.jpg">
-                    <div class="card-section">
-                      <h5>This is a card.</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="cell small-12 large-6">
-                <div class="card" style="width: 100%;">
-                    <img src="https://neunapp.com/media/blog/header16.jpg">
-                    <div class="card-section">
-                      <h5>This is a card.</h5>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
+                
+            
         </div>
         <!-- FIN bloque de blog principal -->
     </div>
@@ -93,33 +74,17 @@
     <!-- tercer bloque home -->
     <div class="grid-x grid-margin-x align-center">
         <h3 class="cell">Articulos Recientes:</h3>
+        {% for entrada in entradas_recientes %}
         <div class="cell small-6 large-4">
             <div class="card" style="width: 100%;">
-                <img src="https://neunapp.com/media/blog/1.png">
+                <img src="{{ entrada.image.url }}" style="height: 120px;">
                 <div class="card-section">
-                  <h4>This is a card.</h4>
-                  <p>It has an easy to override visual style, and is appropriately subdued.</p>
+                  <h4>{{ entrada.title | truncatechars:40 }}</h4>
+                  <p>{{ entrada.resume | truncatechars:70 }}</p>
                 </div>
             </div>
         </div>
-        <div class="cell small-6 large-4">
-            <div class="card" style="width: 100%;">
-                <img src="https://neunapp.com/media/blog/1.png">
-                <div class="card-section">
-                  <h4>This is a card.</h4>
-                  <p>It has an easy to override visual style, and is appropriately subdued.</p>
-                </div>
-            </div>
-        </div>
-        <div class="cell small-6 large-4">
-            <div class="card" style="width: 100%;">
-                <img src="https://neunapp.com/media/blog/1.png">
-                <div class="card-section">
-                  <h4>This is a card.</h4>
-                  <p>It has an easy to override visual style, and is appropriately subdued.</p>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
     <!-- FIN tercer bloque -->
 </div>
