@@ -4,7 +4,7 @@ from django.conf import settings
 from model_utils.models import TimeStampedModel
 from ckeditor_uploader.fields import RichTextUploadingField
 
-class category(TimeStampedModel):
+class Category(TimeStampedModel):
     """ Categorias de una entrada """
 
     short_name = models.CharField(
@@ -46,7 +46,7 @@ class Entry(TimeStampedModel):
         on_delete=models.CASCADE
     )
     category = models.ForeignKey(
-        category, 
+        Category, 
         on_delete=models.CASCADE
     )
     tags = models.ManyToManyField(Tag)
