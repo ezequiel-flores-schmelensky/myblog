@@ -8,21 +8,22 @@
 
 <div class="grid-container">
     <div class="grid-x grid-margin-x align-center">
-        <form class="cell medium-6 large-4" style="margin-top: 2em;">
+        <div class="cell medium-6 large-4" style="margin-top: 2em;">
             <div class="card" style="width: 100%;">
                 <div class="card-divider">
                   <h4>Acceso de usuario</h4>
                 </div>
                 <div class="card-section">
-                    <form class="grid-x grid-margin-x">
+                    <form class="grid-x grid-margin-x"  method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
                         <div class="cell medium-12">
                             <label>Email:
-                            <input type="email" placeholder="Correo electronico">
+                                {{ form.email }}
                             </label>
                         </div>
                         <div class="cell medium-12">
                             <label>Contraseña:
-                            <input type="password" placeholder="Paswword ...">
+                                {{ form.password }}
                             </label>
                         </div>
                         <button type="submit" class="cell hollow button primary">Acceder</button>
@@ -30,7 +31,7 @@
                     </form>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 </div>
 
