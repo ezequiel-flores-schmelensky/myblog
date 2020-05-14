@@ -14,7 +14,7 @@
             <div class="card" style="width: 100%;">
                 <img src="{{ portada.image.url }}">
                 <div class="card-section">
-                  <h4>{{ portada.title }}</h4>
+                  <h4><a href="{% url 'entrada_app:entry-detail' portada.id %}">{{ portada.title }}</a></h4>
                   <p>{{ portada.resume | truncatechars:100 }}</p>
                 </div>
             </div>
