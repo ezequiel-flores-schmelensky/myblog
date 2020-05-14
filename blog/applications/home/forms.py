@@ -1,7 +1,7 @@
 from django import forms
-
 #models
-from .models import Subscribers
+from .models import Subscribers, Contact
+
 
 class SubscribersForm(forms.ModelForm):
     class Meta:
@@ -16,3 +16,10 @@ class SubscribersForm(forms.ModelForm):
                 }
             ),
         }
+
+
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = ('__all__')
+        

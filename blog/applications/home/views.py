@@ -11,7 +11,10 @@ from django.views.generic import (
     CreateView
 )
 # form
-from .forms import SubscribersForm
+from .forms import (
+    SubscribersForm,
+    ContactForm
+)
 
 
 class HomePageView(TemplateView):
@@ -32,7 +35,11 @@ class HomePageView(TemplateView):
         return context
     
 
-
 class SuscriberCreateView(CreateView):
     form_class = SubscribersForm
+    success_url = '.'
+
+
+class ContactCreateView(CreateView):
+    form_class = ContactForm
     success_url = '.'
