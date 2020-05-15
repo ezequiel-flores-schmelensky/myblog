@@ -4,7 +4,8 @@ from django.urls import reverse_lazy, reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import (
     View,
-    ListView
+    ListView,
+    DeleteView
 )
 from applications.entrada.models import Entry
 from .models import Favorites
@@ -35,3 +36,9 @@ class AddFavoritosView(LoginRequiredMixin, View):
                 'favoritos_app:perfil',
             )
         )
+
+
+class FavoritesDeleteView(DeleteView):
+    model = Favorites
+    success_url = reverse_lazy("favoritos_app:perfil")
+    #success_url = '.'
