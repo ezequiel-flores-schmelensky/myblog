@@ -2,6 +2,14 @@
 
 {% load  static %}
 
+{% block title %}
+    {{ home.title }}
+{% endblock title %}
+
+{% block description %}
+    <meta name="description" content="{{ home.description }}">
+{% endblock description %}
+
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/myblog.css' %}">
 {% endblock css %}
